@@ -1,1 +1,86 @@
+<script>
+  Fit();
+  function Fit()
+    {
+    var w = window.innerWidth/200;
+    var h = window.innerHeight/200;
+    var scaler = document.createElement("style");
+    scaler.innerHTML = '.expand:hover { transform: scaleX(' + w + ') scaleY(' + h + '); font-size: 0; }';
+    document.body.appendChild(scaler);
+    }
+  function Refit()
+    {
+    var elements = document.getElementById('botright'); //why does this work
+    elements.style.scaleX = null;
+    elements.style.scaleY = null;
+    Fit();
+    }
+</script>
+<style>
+.expand
+  {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transition: transform 500ms ease-in-out;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  font-family: Tahoma, Geneva, sans-serif;
+  background: dodgerblue;
+  color: white;
+  }
+  .expand
+  {
 
+  }
+  .expand:hover:after
+    { 
+    content: attr(data-hover);
+    font-size: 8px;
+    line-height: 12px;
+    font-weight: 200;
+    font-family: Tahoma, Geneva, sans-serif;
+    padding: 10px;
+    }
+#botright
+	{
+  transform-origin: left top;
+	}
+#topright
+	{
+  margin-top: -100px;
+  transform-origin: left bottom;
+	}
+#botleft
+	{
+  margin-left: -100px; 
+  transform-origin: right top;
+	}
+#topleft
+	{
+  margin-top: -100px; 
+  margin-left: -100px; 
+  transform-origin: right bottom;
+	}
+</style>
+</body>
+<div id="botright" class="expand"
+  data-hover="This Website">
+  Projects
+</div>
+<div id="topright" class="expand"
+  data-hover="Engineering and Gaming">
+  Interests
+</div>
+<div id="topleft" class="expand"
+  data-hover="My Name is Benjamin Becker">
+  About
+</div>
+<div id="botleft" class="expand"
+  data-hover="Nuclear Physicist">
+  Future
+</div>
+</html>
