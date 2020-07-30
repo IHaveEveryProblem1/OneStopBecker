@@ -14,24 +14,79 @@
 <script>
   Fit();
   function Fit()
-    {
+  {
     var w = window.innerWidth/200;
     var h = window.innerHeight/200;
     var scaler = document.createElement("style");
     scaler.innerHTML = '.expand:hover { transform: scaleX(' + w + ') scaleY(' + h + '); font-size: 0; }';
     document.body.appendChild(scaler);
-    }
+  }
   function Refit()
-    {
+  {
     var elements = document.getElementById('botright'); //why does this work
     elements.style.scaleX = null;
     elements.style.scaleY = null;
     Fit();
+  }
+  function SubmitButton()
+  {
+    var check=document.getElementById("check").value == "test";
+    if (check)
+    {
+
     }
+    if (!check)
+    {
+
+    }
+  }
 </script>
 <style>
+::selection 
+{
+  background: white;
+}
+html
+{
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.txt
+{
+  width: calc(50% - 120px);
+  height: calc(50% - 120px);
+  position: absolute;
+  padding: 10px;
+  z-index: 2;
+  font-family: Tahoma, Geneva, sans-serif;
+  color: white;
+  background: purple;
+}
+#tltxt
+{
+  top: calc(0% - 16px);
+  left: 0%;
+}
+#trtxt
+{
+  top: calc(0% - 16px);
+  left: calc(50% + 100px);
+}
+#bltxt
+{
+  top: calc(50% + 84px);
+  left: 0%;
+}
+#brtxt
+{
+  top: calc(50% + 84px);
+  left: calc(50% + 100px);
+}
 .expand
-  {
+{
   width: 100px;
   height: 100px;
   top: 50%;
@@ -44,56 +99,36 @@
   font-family: Tahoma, Geneva, sans-serif;
   background: dodgerblue;
   color: white;
-  }
-  .expand
-  {
-
-  }
-  .expand:hover:after
-    { 
-    content: attr(data-hover);
-    font-size: 8px;
-    line-height: 12px;
-    font-weight: 200;
-    font-family: Tahoma, Geneva, sans-serif;
-    padding: 10px;
-    }
+  z-index: 1;
+}
 #botright
-	{
+{
   transform-origin: left top;
-	}
+}
 #topright
-	{
+{
   margin-top: -100px;
   transform-origin: left bottom;
-	}
+}
 #botleft
-	{
+{
   margin-left: -100px; 
   transform-origin: right top;
-	}
+}
 #topleft
-	{
+{
   margin-top: -100px; 
   margin-left: -100px; 
   transform-origin: right bottom;
-	}
+}
 </style>
+<div id="topleft" class="expand">About</div>
+  <p id="tltxt" class="txt"> My name is Benjamin Becker.</p>
+<div id="topright" class="expand">Interests</div>
+  <p id="trtxt" class="txt"> Engineering and Gaming.</p>
+<div id="botright" class="expand">Projects</div>
+  <p id="brtxt" class="txt"> This Website.</p>
+<div id="botleft" class="expand">Future</div>
+  <p id="bltxt" class="txt"> Nuclear Physicist.</p>
 </body>
-<div id="botright" class="expand"
-  data-hover="This Website">
-  Projects
-</div>
-<div id="topright" class="expand"
-  data-hover="Engineering and Gaming">
-  Interests
-</div>
-<div id="topleft" class="expand"
-  data-hover="My Name is Benjamin Becker">
-  About
-</div>
-<div id="botleft" class="expand"
-  data-hover="Nuclear Physicist">
-  Future
-</div>
 </html>
